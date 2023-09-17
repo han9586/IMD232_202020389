@@ -16,11 +16,23 @@
       prompt('혹시 배고프신가요?');
       let userInputFromPrompt;
       userInputFromPrompt = prompt('당신의 이름은?', '본명을 적으세요');
-      confirm('아하 당신의 이름은 ' + userInputFromPrompt + '이구나');
+      let confirmVal = confirm(
+        '아하 당신의 이름은 ' + userInputFromPrompt + '맞습니까?'
+      );
+      if (confirmVal == true) {
+        alert('환영합니다. ' + userInputFromPrompt + '님!');
+      }
     </script>
   </head>
   <body>
     <div class="viewport">
+      <header>
+        <section>
+          <div class="container">
+            <h1>한아름 W2 Sketch1</h1>
+          </div>
+        </section>
+      </header>
       <main>
         <section>
           <div class="container"></div>
@@ -29,10 +41,12 @@
       <footer>
         <section>
           <div class="container">
+            <h2>코드</h2>
             <h6>index.html</h6>
             <pre
               class="line-numbers"
               data-src="./index.html"
+              data-line="14-25"
               data-download-link></pre>
           </div>
         </section>
