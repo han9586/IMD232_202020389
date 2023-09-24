@@ -1,5 +1,5 @@
 function setup() {
-  setCanvasContainer('p5-canvas', 1200, 800);
+  setCanvasContainer('p5-canvas', 3, 2, true);
   background('white');
 }
 
@@ -12,11 +12,11 @@ function draw() {
   noStroke();
 
   fill('#CECBC0');
-  // 배경
-  rect(480, 700, width * 2, height / 4);
-  fill('#C2C2C2');
   // 바닥
-  rect(650, 170, width / 3, height / 3);
+  rect(480, 600, width * 330, 300);
+  fill('#C2C2C2');
+  // 창문틀
+  rect(650, 190, 400, 300);
   fill('#FFFFFF');
   // 창문
   rect(650, 200, 400, 300);
@@ -25,9 +25,8 @@ function draw() {
   // 무드등 전등
   fill('#E8EFFD');
   // 커튼
-  rect(650, 70, 400, 10);
-  rect(650, 100, 400, 10);
-  rect(650, 130, 400, 10);
+  rect(width / 0.004, height / 0.015, width / 233.3, height / 0.2);
+  rect(width / 0.004, height / 0.01538, width / 233.3, height / 0.2);
   rect(650, 160, 400, 10);
   rect(650, 190, 400, 10);
   rect(650, 220, 400, 10);
@@ -36,7 +35,7 @@ function draw() {
   rect(650, 310, 400, 10);
   fill('#C1885F');
   // 테이블
-  rect(650, 400, 400, 40);
+  rect(width / 0.00461538, height / 0.005, width / 133.33333, height / 0.05);
   rect(470, 500, 30, 150);
   rect(830, 500, 30, 150);
   rect(600, 550, 30, 120);
