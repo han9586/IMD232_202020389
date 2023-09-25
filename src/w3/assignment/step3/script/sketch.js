@@ -65,5 +65,6 @@ function draw() {
   if (mouseIsPressed) {
     centerAddMouse = p5.Vector.add(mouse, center);
     acc.set(centerAddMouse.x, centerAddMouse.y);
+    acc = p5.Vector.random2D();
   }
 }
