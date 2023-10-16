@@ -1,10 +1,11 @@
 class Pendulum {
-  constructor(x, y, length, angle, rad) {
-    this.angle = angle;
-    this.angleVel = 0;
-    this.angleAcc = 0;
-    this.pos = createVector(x, y);
-    this.length = length;
+  constructor(x, y, length, angle, rad, connectedPendulum = null) {
+    // 위치, 길이, 초기 각도, 반지름, 연결하기
+    this.angle = angle; // 진자의 각도
+    this.angleVel = 0; // 진자의 각도에 대한 속도
+    this.angleAcc = 0; // 진자의 각도에 대한 가속도
+    this.pos = createVector(x, y); // 진자의 위치
+    this.length = length; // 진자의 길이
     this.ballPos = createVector(x, y);
     this.ballPos.add(
       cos(this.angle) * this.length,
@@ -14,6 +15,12 @@ class Pendulum {
     this.draggingOffset = createVector();
     this.isHover = false;
     this.isDragging = false;
+
+    this.connectedPendulum = connectedPendulum; // 연결된 Pendulum
+    if (connectedPendulum) {
+      this.pos.x = connectedPendulum.ballPos.x; // PendulumA의 끝 위치로 설정
+      this.pos.y = connectedPendulum.ballPos.y; // PendulumA의 끝 위치로 설정
+    }
   }
 
   applyGravity(gravity) {
@@ -31,6 +38,11 @@ class Pendulum {
       cos(this.angle) * this.length + this.pos.x,
       sin(this.angle) * this.length + this.pos.y
     );
+
+    if (this.connectedPendulum) {
+      this.pos.x = this.connectedPendulum.ballPos.x; // PendulumA의 끝 위치 따르게
+      this.pos.y = this.connectedPendulum.ballPos.y; // PendulumA의 끝 위치 따르게
+    }
   }
 
   display() {
@@ -38,7 +50,7 @@ class Pendulum {
     fill(127);
     ellipse(this.pos.x, this.pos.y, 20);
     if (this.isDragging) {
-      fill('#ff0000');
+      fill('blue');
     } else if (this.isHover) {
       fill(127);
     } else {
