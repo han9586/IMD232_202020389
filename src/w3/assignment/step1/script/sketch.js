@@ -47,21 +47,21 @@ function draw() {
   ellipse(pos.x, pos.y, 2 * radius);
 
   mouse.set(mouseX, mouseY);
-  //   centerToMouse = p5.Vector.sub(mouse, center);
+  // centerToMouse = p5.Vector.sub(mouse, center);
   strokeWeight(1);
   stroke('black');
-  //   translate(pos.x, pos.y);
+  // translate(pos.x, pos.y);
   centerTovel.set(pos.x, pos.y);
   centerToacc.set(pos.x, pos.y);
   acc.mult(100);
   vel.mult(10);
   line(pos.x, pos.y, mouseX, mouseY);
-  //   acc.mult(50);
-  //   centerToacc = p5.Vector.sub(acc, center);
+  // acc.mult(50);
+  // centerToacc = p5.Vector.sub(acc, center);
   centerTovel = p5.Vector.sub(centerTovel, vel);
   centerToacc = p5.Vector.sub(centerToacc, acc);
 
-  //   line(pos.x, pos.y, centerToacc.x, centerToacc.y);
+  // line(pos.x, pos.y, centerToacc.x, centerToacc.y);
   stroke('red');
   line(pos.x, pos.y, centerTovel.x, centerTovel.y);
   stroke('blue');

@@ -26,22 +26,22 @@ function setup() {
 
 function draw() {
   background('white');
-  //   acc = p5.Vector.random2D();
+  // acc = p5.Vector.random2D();
   acc.mult(0.5);
   vel.add(acc);
   vel.limit(5);
   pos.add(vel);
 
-  //   if (pos.x < 0) {
-  //     pos.x = width;
-  //   } else if (pos.x > width) {
-  //     pos.x = 0;
-  //   }
-  //   if (pos.y < 0) {
-  //     pos.y = height;
-  //   } else if (pos.y > height) {
-  //     pos.y = 0;
-  //   }
+  // if (pos.x < 0) {
+  //   pos.x = width;
+  // } else if (pos.x > width) {
+  //   pos.x = 0;
+  // }
+  // if (pos.y < 0) {
+  //   pos.y = height;
+  // } else if (pos.y > height) {
+  //   pos.y = 0;
+  // }
 
   noStroke();
   ellipse(pos.x, pos.y, 2 * radius);
@@ -52,12 +52,12 @@ function draw() {
   strokeWeight(1);
   stroke('black');
 
-  //   centerTovel.set(pos.x, pos.y);
-  //   centerToacc.set(pos.x, pos.y);
-  //   acc.mult(100);
-  //   vel.mult(10);
+  // centerTovel.set(pos.x, pos.y);
+  // centerToacc.set(pos.x, pos.y);
+  // acc.mult(100);
+  // vel.mult(10);
   line(pos.x, pos.y, mouseX, mouseY);
 
-  //   centerTovel = p5.Vector.sub(centerTovel, vel);
-  //   centerToacc = p5.Vector.sub(centerToacc, acc);
+  // centerTovel = p5.Vector.sub(centerTovel, vel);
+  // centerToacc = p5.Vector.sub(centerToacc, acc);
 }
