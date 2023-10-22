@@ -4,7 +4,7 @@ class Emitter {
     this.y = y;
     this.numParticles = numParticles;
     this.particles = [];
-    this.lifeSpan = 0;
+    this.lifeSpan = 600;
 
     for (let i = 0; i < this.numParticles; i++) {
       this.particles.push(new Particle(this.x, this.y));
@@ -20,7 +20,7 @@ class Emitter {
       }
     }
 
-    this.lifeSpan -= 1; // 수정: 더 빠르게 lifeSpan 감소
+    this.lifeSpan -= 100;
   }
 
   display() {

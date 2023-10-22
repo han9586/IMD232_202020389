@@ -8,6 +8,7 @@ class Particle {
     this.life = this.lifeSpan;
     this.angleSpeed = random(-0.3, 0.3); // 수정: 각도 범위 조정
     this.angle = 0;
+    this.color = color(random(360), 100, 100);
   }
 
   applyForce(gravity) {
@@ -24,7 +25,7 @@ class Particle {
 
   display() {
     noStroke();
-    fill(127, 255);
+    fill(this.color);
     push(); // 현재 그래픽 상태를 저장
     translate(this.pos.x, this.pos.y); // 입자의 위치로 이동
     rotate(this.angle); // 현재 각도로 회전

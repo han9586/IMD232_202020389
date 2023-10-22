@@ -12,6 +12,7 @@ function setup() {
     emitters.push(new Emitter(random(width), random(height), 1)); // 1은 각 에미터당 생성할 입자 수
   }
 
+  colorMode(HSL, 360, 100, 100);
   background(255);
 }
 
