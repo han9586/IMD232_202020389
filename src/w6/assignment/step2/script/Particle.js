@@ -7,7 +7,6 @@ class Particle {
     this.rad = 10;
     this.mass = 10;
     this.lifeSpan = 60;
-    this.color = color(random(360), 100, 100, 100);
   }
 
   applyForce(force) {
@@ -24,7 +23,7 @@ class Particle {
 
   display() {
     stroke(0, this.lifeSpan * 3);
-    fill(this.color, this.lifeSpan * 3);
+    fill(125, this.lifeSpan * 3);
     ellipse(this.pos.x, this.pos.y, this.rad * 2);
   }
 
