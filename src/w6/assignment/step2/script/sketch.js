@@ -4,7 +4,6 @@ let friction = 0.9;
 
 function setup() {
   setCanvasContainer('canvas', 3, 2, true);
-
   gravity = createVector(0, 0.1);
   emitter = new Emitter();
   background(255);
