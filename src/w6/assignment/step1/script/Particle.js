@@ -4,7 +4,7 @@ class Particle {
     this.vel = createVector(0, 2);
     this.length = 12;
     this.angle = 0;
-    this.color = color(random(360), 100, 100, 100);
+    this.color = color(random(360), 100, 100);
   }
 
   update() {
@@ -16,7 +16,7 @@ class Particle {
     push();
     translate(this.pos.x, this.pos.y);
     rotate(this.angle);
-    // noStroke();
+    noStroke();
     fill(this.color);
     rect(0, 0, this.length, this.length);
     pop();

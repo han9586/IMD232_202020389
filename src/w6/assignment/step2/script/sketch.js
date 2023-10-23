@@ -1,24 +1,24 @@
-let emitter;
-let gravity = 0;
-let friction = 0.9;
+let emiiter;
+let gravity;
 
 function setup() {
-  setCanvasContainer('canvas', 3, 2, true);
-
+  setCanvasContainer('canvas', 2, 1, true);
+  emitter = new Emitter(width / 2, height / 2);
   gravity = createVector(0, 0.1);
-  emitter = new Emitter();
+  noStroke();
   background(255);
+  for (let n = 0; n < 100; n++) emitter.emit(width / 2, height / 2, 1);
 }
 
 function draw() {
   background(255);
-  console.log(emitter.particles.length);
-  emitter.update(gravity);
+
+  emitter.update();
   emitter.display();
+
+  console.log('현재 파티클의 갯수: ' + emitter.particles.length);
 }
 
 function mousePressed() {
-  for (let i = 0; i < 100; i++) {
-    emitter.particles.push(new Particle(mouseX, mouseY));
-  }
+  emitter.emit(mouseX, mouseY, 1);
 }
