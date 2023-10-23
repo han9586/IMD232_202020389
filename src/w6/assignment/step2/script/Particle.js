@@ -1,30 +1,39 @@
 class Particle {
-  constructor(x, y, vx, vy) {
-    this.position = createVector(x, y);
-    this.velocity = createVector(vx, vy);
-    // this.velocity = createVector(random(19, 20));
-    this.acceleration = createVector(0, 0);
-    this.radius = 10;
-    this.lifespan = 60;
+  constructor(x, y) {
+    this.pos = createVector(x, y);
+    this.vel = createVector(random(19, 20), 0);
+    this.vel.rotate((TAU / 360) * random(0, 360));
+    this.acc = createVector(0, 0);
+    this.rad = 10;
     this.mass = 10;
-    this.color = color;
+    this.lifeSpan = 60;
+  }
+
+  applyForce(force) {
+    this.acc.add(force);
   }
 
   update() {
-    this.velocity.add(gravity);
-    this.position.add(this.velocity);
-    this.alpha -= 0.1;
-    this.acceleration.mult(0); // 가속도 초기화
-    this.velocity.add(this.gravity); // 중력 적용
-    this.lifespan -= 1;
+    this.vel.add(this.acc);
+    this.vel.mult(friction);
+    this.pos.add(this.vel);
+    this.acc.mult(0);
+    this.lifeSpan--;
   }
 
   display() {
-    fill(255, 100, 100, (this.lifespan / 60) * 100); // 투명도 조절
-    ellipse(this.position.x, this.position.y, this.radius * 2);
+    stroke(0, this.lifeSpan * 3);
+    fill(125, this.lifeSpan * 3);
+    ellipse(this.pos.x, this.pos.y, this.rad * 2);
   }
 
   isDead() {
-    return this.lifespan < 0 || this.position.y > height;
+    return (
+      this.lifeSpan < 0 ||
+      this.pos.x < 0 ||
+      this.pos.x > width ||
+      this.pos.y < 0 ||
+      this.pos.y > height
+    );
   }
 }
